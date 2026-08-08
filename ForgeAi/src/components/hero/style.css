@@ -1,0 +1,286 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  background: #0a0a0a;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Small label */
+.hero-label {
+  font-size: 13px;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+  opacity: 0.5;
+
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* ForgeAI title */
+.hero-title {
+  font-size: clamp(70px, 12vw, 150px);
+  font-weight: 800;
+  line-height: 1;
+  margin: 0 0 30px;
+
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #777777,
+    #ffffff
+  );
+
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  animation:
+    titleAppear 1s ease forwards,
+    titleShine 4s linear infinite;
+}
+
+.hero-title span {
+  opacity: 0.55;
+}
+
+/* Main heading */
+.hero-content h2 {
+  font-size: clamp(30px, 5vw, 60px);
+  line-height: 1.1;
+  font-weight: 600;
+  margin-bottom: 35px;
+
+  animation: fadeUp 1s ease 0.3s forwards;
+  opacity: 0;
+}
+
+/* Description box */
+.hero-description {
+  position: relative;
+
+  max-width: 700px;
+  margin: 0 auto 40px;
+  padding: 24px 30px;
+
+  font-size: 17px;
+  line-height: 1.7;
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  animation:
+    descriptionAppear 1s ease 0.6s forwards;
+}
+
+/* Moving glowing border */
+.hero-description::before {
+  content: "";
+
+  position: absolute;
+  inset: -2px;
+
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    transparent,
+    #ffffff,
+    transparent,
+    transparent
+  );
+
+  animation: borderMotion 4s linear infinite;
+
+  z-index: -2;
+}
+
+/* Inner background */
+.hero-description::after {
+  content: "";
+
+  position: absolute;
+  inset: 1px;
+
+  background: #0a0a0a;
+
+  border-radius: 15px;
+
+  z-index: -1;
+}
+
+/* Start button */
+.start-btn {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 15px 28px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+
+  background: white;
+  color: black;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+    
+  animation: fadeUp 1s ease 0.9s forwards;
+  opacity: 0;
+}
+
+.start-btn span {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.start-btn:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 30px rgba(255, 255, 255, 0.15);
+}
+
+.start-btn:hover span {
+  transform: translateX(5px);
+}
+
+.start-btn:active {
+  transform: translateY(-1px);
+}
+
+
+/* ========================= */
+/* Animations */
+/* ========================= */
+
+@keyframes titleAppear {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes titleShine {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes descriptionAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes borderMotion {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ========================= */
+/* Responsive */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 30px 18px;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  .hero-title {
+    margin-bottom: 25px;
+  }
+
+  .hero-content h2 {
+    margin-bottom: 25px;
+  }
+
+  .hero-description {
+    padding: 20px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .start-btn {
+    padding: 13px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-description {
+    padding: 18px;
+    font-size: 14px;
+  }
+
+  .start-btn {
+    width: 100%;
+    max-width: 220px;
+  }
+}

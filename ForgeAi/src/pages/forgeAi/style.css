@@ -1,0 +1,38 @@
+import './Hero.css'
+
+const Hero = () => {
+  return (
+    <section className="hero">
+
+      <div className="hero-content">
+
+        <p className="hero-label">AI SOFTWARE ARCHITECT</p>
+
+        <h1 className="hero-title">
+          Forge<span>AI</span>
+        </h1>
+
+        <h2>
+          Turn your ideas into
+          <br />
+          complete project blueprints.
+        </h2>
+
+        <p className="hero-description">
+          ForgeAI transforms your project ideas into structured software
+          blueprints with features, technology recommendations, architecture,
+          database design, APIs, and development roadmaps.
+        </p>
+
+        <button className="start-btn">
+          Start Building
+          <span>→</span>
+        </button>
+
+      </div>
+
+    </section>
+  )
+}
+
+export default Hero
